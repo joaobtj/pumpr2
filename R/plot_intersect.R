@@ -17,10 +17,25 @@
 plot_intersect <- function(hmsis, hmpump) {
   a <- polyroot(hmsis[[2]]$coefficients - hmpump[[2]]$coefficients)
   int=Re(a)[Re(a) > 0]
+  intersect=intersect_pump(curva_sis, curva_bomba)*3600
+  
   df_colbind_na(curva_sis[[1]],curva_bomba[[1]] ) %>%
-    ggplot()+
-    geom_line(aes(x=q_bomba, y=hm_bomba), color="blue")+
-    geom_line(aes(x=q, y=hm), color="green")
+    ggplot(aes(x=q_bomba*3600, y=hm_bomba))+
+    geom_line( color="red", size=1)+
+    geom_line(aes(x=q*3600, y=hm), color="blue", size=1)+
+    labs(
+      x = "Flow rate (m3/h)",
+      y = "Manometric height (mca)",
+      
+    )+
+    geom_vline(xintercept = intersect,
+               size=1, color="green4")+
+    annotate("label", x = intersect_pump(curva_sis, curva_bomba)*3600, 
+             y =  min(curva_bomba[[1]]$hm_bomba %>% min,
+                      curva_sis[[1]]$hm %>% min), label = round(intersect,2))
+    
+    
+  
   }
 
 #
