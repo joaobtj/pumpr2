@@ -1,6 +1,6 @@
 #' plot_intersect
 #'
-#' @inheritParams intersect
+#' @inheritParams intersect_pump
 #'
 #' @importFrom magrittr %>%
 #' @import ggplot2

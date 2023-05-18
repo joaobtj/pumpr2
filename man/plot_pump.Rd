@@ -18,6 +18,6 @@ Title
 \examples{
 Q_BC21_15 <- c(19.2, 18.2, 17.2, 16.0, 13.3, 9.9)/3600
 Hm_BC21_15 <- c(9, 10, 11, 12, 14, 16)
-curva_bomba <- hmpump(Q_BC21_15, Hm_BC21_15)
+df=curva_bomba <- hmpump(Q_BC21_15, Hm_BC21_15)
 plot_pump(curva_bomba)
 }

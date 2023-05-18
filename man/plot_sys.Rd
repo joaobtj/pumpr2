@@ -16,7 +16,7 @@ Um Plot da curva caracteristica do sistema
 Title
 }
 \examples{
-curva_sistema <- hmsis(
+df=curva_sistema <- hmsis(
   hr = 20, hs = 1, dr_com = 60 / 1000, q = 10 / 3600, lr = 50, per = 148,
   ds_com = 75 / 1000, ls = 2, pes = 305
 )
