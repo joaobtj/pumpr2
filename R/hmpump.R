@@ -14,7 +14,7 @@
 
 hmpump <- function(q_bomba, hm_bomba) {
   df <- data.frame(q_bomba, hm_bomba)
-    model <- lm(formula = hm_bomba ~ poly(q_bomba, 2, raw = TRUE), data = df)
+    model <- lm(formula = hm_bomba ~ q_bomba+I(q_bomba^2), data = df)
 
     return(list(df, model))
 
